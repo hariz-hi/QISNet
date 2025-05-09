@@ -4,14 +4,14 @@ import os
 from PIL import Image
 
 # 使用データ番号の指定
-num_data = 3
+num_data = 5
 
 # ファイルパス
 path_imagein = f'image/Original/data{num_data}.png'
 path_imageout_folder = f'dataset/val/bitplane_data{num_data}/'
 
 # 共通パラメータ設定
-num_bitplanes = 500  # 使用bit-plane画像枚数
+num_bitplanes = 1  # 使用bit-plane画像枚数
 q = 1  # 入射光子数>=qで,bit-plane画像の画素値1
 alpha = 1  # 輝度調整用パラメータ(alpha=1でグレースケール画像の255の画素で入射光子数=1 photon/bit-plane/pix)
 
@@ -75,4 +75,5 @@ for i in range(num_bitplanes):
     output_path = os.path.join(path_imageout_folder, f'test{i + 1}.png')
     cv2.imwrite(output_path, bitplanes[:, :, i].astype(np.uint8))
 
+print('Completed.')
 print('Completed.')
